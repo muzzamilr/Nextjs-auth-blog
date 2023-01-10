@@ -11,7 +11,7 @@ export default function handler(req, res) {
 			{
 				user: user,
 			},
-			process.env.NEXT_PUBLIC_JWT_KEY,
+			`${process.env.NEXT_PUBLIC_JWT_KEY}`,
 			{ expiresIn: "12h" },
 		);
 

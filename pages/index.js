@@ -14,7 +14,7 @@ export const getServerSideProps = async ({ req, res }) => {
 	try {
 		const isAuthenticated = await jwt.verify(
 			cookie,
-			process.env.NEXT_PUBLIC_JWT_KEY,
+			`${process.env.NEXT_PUBLIC_JWT_KEY}`,
 		);
 		return { props: { isAuthenticated: isAuthenticated } };
 	} catch (err) {
