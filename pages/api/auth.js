@@ -15,8 +15,8 @@ export default function handler(req, res) {
 			{ expiresIn: "12h" },
 		);
 
-		res.send(token);
+		return res.send(token);
 	}
 
-	res.status(200).json("Invalid Request");
+	return res.status(200).json("Invalid Request");
 }
