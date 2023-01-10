@@ -4,19 +4,19 @@ export default function handler(req, res) {
 	if (req.method === "POST") {
 		const user = {
 			username: req.body.username,
-			password: req.body.password,
-			status: 200,
+			// password: req.body.password,
+			status: "got it",
 		};
 		const token = jwt.sign(
 			{
 				user: user,
 			},
-			`${process.env.NEXT_PUBLIC_JWT_KEY}`,
+			process.env.NEXT_PUBLIC_JWT_KEY,
 			{ expiresIn: "12h" },
 		);
 
 		return res.send(token);
 	}
 
-	return res.status(200).json("Invalid Request");
+	return res.status(401).json("Invalid Request");
 }
